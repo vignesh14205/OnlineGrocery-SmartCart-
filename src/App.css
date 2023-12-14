@@ -1,0 +1,288 @@
+
+
+/* .App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
+body{
+  background-color: rgb(190, 216, 218);
+}
+.main
+{
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  border: 2px solid rgb(48, 109, 162);
+  border-radius: 18px;
+  height: 300px;
+  width: 550px;
+  margin-top: 95px;
+  margin-left: 500px;
+  box-shadow: 5px 5px 2px rgb(69, 77, 81);
+}
+.Lname
+{
+  color:rgb(48, 109, 162);
+  text-shadow: 1px 1px 2px;
+  font-size: large;
+  font-weight: 600;
+}
+.Login
+{
+ padding: 10px;
+ border: 2px solid rgb(48, 109, 162);
+ border-radius: 18px;
+ margin-top: 21px;
+ margin-left: 34px;
+ height: 240px;
+ width: 200px;
+}
+.img1
+{
+  height:180px;
+  width: 280px;
+  margin-top: 55px;
+}
+.img2
+{
+  height: 80px;
+  width: 110px;
+}
+#username
+{
+  border-radius: 8px;
+  height: 20px;
+  width: 145px;
+  box-shadow: 2px 2px 1px gray;
+  border: 2px solid rgb(48, 109, 162);
+}
+#password
+{
+  border-radius: 8px;
+  height: 20px;
+  width: 145px;
+  box-shadow: 2px 2px 1px gray;
+  border: 2px solid rgb(48, 109, 162);
+}
+.sigin
+{
+  text-decoration: none;
+  color: black;
+}
+
+.submit{
+  border-radius: 5px;
+  padding: 5px;
+  height: 25px;
+  width: 100px;
+  box-shadow: 2px 2px 1px gray;
+  border: 2px solid rgb(48, 109, 162);
+ background-color:rgb(114, 216, 229);
+ 
+}
+.submit:hover
+{
+  background-color: rgb(228, 238, 247);
+}
+
+.head
+{
+  color: rgb(48, 109, 162);
+  font-weight: 700;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  text-shadow: 2px 1px 3px;
+}
+
+.logo
+{
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  margin-top: 110px;
+  margin-left: 600px;
+}
+
+
+
+
+/* .sparent
+{
+  box-shadow: 5px 5px 2px rgb(69, 77, 81);
+}
+.sform
+{
+  text-align: center;
+  padding: 10px;
+ border: 2px solid rgb(48, 109, 162);
+ border-radius: 18px;
+ margin-top: 21px;
+ margin-left: 35px;
+ height: 290px;
+ width: 180px;
+}
+
+.SUP
+{
+  color:rgb(48, 109, 162);
+  text-shadow: 1px 1px 2px;
+  font-size: large;
+  font-weight: 600;
+}
+
+#Uname
+{
+  border-radius: 8px;
+  height: 20px;
+  width: 145px;
+  box-shadow: 2px 2px 1px gray;
+  border: 2px solid rgb(48, 109, 162);
+}
+#Pass
+{
+  border-radius: 8px;
+  height: 20px;
+  width: 145px;
+  box-shadow: 2px 2px 1px gray;
+  border: 2px solid rgb(48, 109, 162);
+}
+#email
+{
+  border-radius: 8px;
+  height: 20px;
+  width: 145px;
+  box-shadow: 2px 2px 1px gray;
+  border: 2px solid rgb(48, 109, 162);
+}
+#number
+{
+  border-radius: 8px;
+  height: 20px;
+  width: 145px;
+  box-shadow: 2px 2px 1px gray;
+  border: 2px solid rgb(48, 109, 162);
+} */
+
+
+.sform
+{
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  border: 2px solid rgb(48, 109, 162);
+  border-radius: 18px;
+  height: 360px;
+  width: 550px;
+  margin-top: 85px;
+  margin-left: 490px;
+  box-shadow: 5px 5px 2px rgb(69, 77, 81);
+
+}
+.form2
+{
+  text-align: center;
+  padding: 10px;
+  border: 2px solid rgb(48, 109, 162);
+  border-radius: 18px;
+  margin-top: 21px;
+  margin-left: 60px;
+  height: 300px;
+  width: 180px;
+}
+
+.SUP
+{
+  color:rgb(48, 109, 162);
+  text-shadow: 1px 1px 2px;
+  font-size: large;
+  font-weight: 600;
+}
+
+#Uname
+{
+  border-radius: 8px;
+  height: 20px;
+  width: 145px;
+  box-shadow: 2px 2px 1px gray;
+  border: 2px solid rgb(48, 109, 162);
+}
+#Pass
+{
+  border-radius: 8px;
+  height: 20px;
+  width: 145px;
+  box-shadow: 2px 2px 1px gray;
+  border: 2px solid rgb(48, 109, 162);
+}
+#email
+{
+  border-radius: 8px;
+  height: 20px;
+  width: 145px;
+  box-shadow: 2px 2px 1px gray;
+  border: 2px solid rgb(48, 109, 162);
+}
+#number
+{
+  border-radius: 8px;
+  height: 20px;
+  width: 145px;
+  box-shadow: 2px 2px 1px gray;
+  border: 2px solid rgb(48, 109, 162);
+}
+
+.logo{
+align-items: center;
+display: flex;
+flex-direction: row;
+margin-top: 110px;
+margin-left: 600px;
+}
+
+.head
+{
+  color: rgb(48, 109, 162);
+  font-weight: 700;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  text-shadow: 2px 1px 3px;
+}
+
+.img2
+{
+  height: 80px;
+  width: 110px;
+}
+
+.img1
+{
+  height:250px;
+  width: 230px;
+  margin-top: 55px;
+  margin-left: 40px;
+}
+
+.submit{
+  border-radius: 5px;
+  padding: 5px;
+  height: 25px;
+  width: 100px;
+  box-shadow: 2px 2px 1px gray;
+  border: 2px solid rgb(48, 109, 162);
+ background-color:rgb(114, 216, 229);
+ 
+}
+.submit:hover
+{
+  background-color: rgb(228, 238, 247);
+}
+
+body{
+  background-color: rgb(190, 216, 218);
+}
