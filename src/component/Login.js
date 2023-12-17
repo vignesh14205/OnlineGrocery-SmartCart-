@@ -1,6 +1,8 @@
+import * as React from 'react';
 import login from './login.png';
-import { Link } from 'react-router-dom';
 import Logo1 from './Logo1.png';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 
 function Login()
 {
@@ -13,13 +15,22 @@ function Login()
          <div className="main">
          <img class="img1" src={login} alt="LoginImage"/>
          <div className="Login">
+    <Box
+      component="form"
+      sx={{
+        '& > :not(style)': { m: 1, width: '25ch' },
+      }}
+      noValidate
+      autoComplete="off"
+    >
          <form>
          <p class="Lname">LOGIN</p>
          <label for="username">Username</label>
-         <input type="text" id="username" placeholder='Username*'></input>
+         <TextField id="username" label="Username*" variant="outlined" />
+         {/* <input type="text" id="username" placeholder='Username*'></input> */}
          <br></br>
          <label for="password">Password</label> 
-         <input type="password" id="password" placeholder='Password*'></input>
+         <TextField id="password" label="Password*" variant="outlined" />
          <br></br>
          <br></br>
          <button class="submit">SignIn</button>
@@ -28,6 +39,7 @@ function Login()
          <label for="newuser">NewUser?</label>
          <a href='Signup.js' class="sigin">Signup</a>
          </form>
+         </Box>
          </div>
          </div>
          </div>
