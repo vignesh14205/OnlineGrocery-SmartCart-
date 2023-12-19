@@ -3,7 +3,7 @@ import login from './login.png';
 import Logo1 from './Logo1.png';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-
+import { Link } from 'react-router-dom';
 function Login()
 {
     return(
@@ -37,7 +37,11 @@ function Login()
          <br></br>
          <br></br>
          <label for="newuser">NewUser?</label>
-         <a href='Signup.js' class="sigin">Signup</a>
+         <button>
+            <Link to= '/Signup'>
+            Don't have an account? <span id="colorchange">Signup Here</span>
+            </Link> 
+            </button>
          </form>
          </Box>
          </div>
