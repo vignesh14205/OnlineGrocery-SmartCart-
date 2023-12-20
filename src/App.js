@@ -13,9 +13,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
     return (
        <div>
-        <BrowserRouter>
-        <Navigator/>
-        </BrowserRouter>
+            <Home/>
         </div> 
     );
 }

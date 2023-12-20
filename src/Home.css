@@ -11,20 +11,28 @@
   margin-bottom: 30px;
 }
 
+/* body{
+  background-image: url(loginbg1.jpg);
+  background-size: 100% 120%;
+  background-repeat: no-repeat;
+  background-position: center; 
+} */
 .car {
-    margin-left: 180px;
-    width: 75%; 
-    height: 370px; 
+    margin-left: 250px;
+    width: 70%; 
+    height: 360px; 
     border-radius:10px;
     box-shadow: 5px 5px  2px rgb(220, 239, 255) ;
+    margin-top: 50px;
     /* object-fit: cover;  */
   }
 .car3 {
-    margin-left: 180px;
-    width: 65%; 
-    height: 370px; 
+    margin-left: 250px;
+    width: 70%; 
+    height: 360px; 
     border-radius:10px;
     box-shadow: 5px 5px  2px rgb(220, 239, 255) ;
+    margin-top: 50px;
     /* object-fit: cover;  */
   }
 
@@ -40,7 +48,7 @@
   {
     border:2px solid whitesmoke;
     border-radius: 10px;
-    margin-left: 50px;
+    margin-left: 75px;
     width:300px;
     display: flex;
     flex-direction: row;
@@ -63,7 +71,7 @@
     border:2px solid whitesmoke;
     border-radius: 10px;
     width:300px;
-    margin-left: 50px;
+    margin-left: 75px;
     margin-bottom: 60px;
     display: flex;
     flex-direction: row;
@@ -87,10 +95,28 @@
     width:50%;
     float: right;
     transform: rotate(28deg);
-    margin-right: 50px;
-   
+    margin-right: 66px;
   }
-  /* .carousel-caption {
+
+  .homebgg
+  {
+   
+    height: 400px; 
+    margin-left: 400px; 
+    position: absolute;
+    top:-100;
+    z-index: -2;
+    max-width: 800px;
+  } 
+
+.main1
+{
+  transform: scale(200%);
+  margin-left:285px;
+  max-width: 700px;
+  box-shadow: 3px 3px 2px white;
+}
+/* .carousel-caption {
     background: rgba(0, 0, 0, 0.7);
     padding: 20px; 
     border-radius: 5px;

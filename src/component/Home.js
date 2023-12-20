@@ -1,8 +1,11 @@
 import React from 'react'
+import {GoogleFont} from 'react-google-fonts';
 import Logo1 from './Logo1.png';
 import car1 from './car1.webp';
 import car2 from './car2.jpg';
 import car4 from './car4.jpg';
+import homebgg from './homebgg.png';
+import homebg from './homebg.jpg';
 import homebgedit1 from './homebgedit1.png';
 import home1 from './home1.webp';
 import home2 from './home2.webp';
@@ -18,9 +21,16 @@ export default function Home()
          <h1 class="head">SmartCart</h1>
          </div> 
 
+      <div class="mainbg">
+         <img class="homebgg" src={homebg} alt="Logo1"/>
+         <img class="main1" src={homebgg} alt="img2"/>
+        {/* <div class="maintext">
+         <p>Welcome</p>
+        </div> */}
+        </div>
 
-      <Carousel data-bs-theme="dark">
-      <Carousel.Item>
+       <Carousel data-bs-theme="dark">
+       <Carousel.Item>
       <img class="car" src={car2} alt="img2"/>
       <Carousel.Caption>
       <h5></h5>
@@ -32,19 +42,19 @@ export default function Home()
       <h5></h5>
       </Carousel.Caption>
       </Carousel.Item>
-      {/* <Carousel.Item>
-      <img class="car3" src={""} alt="img2"/>
+     {/* <Carousel.Item> 
+      <img class="car3" src={homebgg} alt="img2"/>
       <Carousel.Caption>
       <h5></h5>
       </Carousel.Caption>
-      </Carousel.Item> */}
+      </Carousel.Item>  */}
       {/* <Carousel.Item>
       <img class="car" src={""} alt="img2"/>
       <Carousel.Caption>
       <h5></h5>
       </Carousel.Caption>
       </Carousel.Item> */}
-      </Carousel>
+      </Carousel> 
 
     <p class="heading">EXPLORE ITEMS</p>
 

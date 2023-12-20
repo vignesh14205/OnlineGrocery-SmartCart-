@@ -12,49 +12,48 @@
     transform: rotate(360deg);
   }
 } */
-body{
-  /* background-image: url(eduardo-soares-QsYXYSwV3NU-unsplash.jpg);
- background-size: 90% 90%;
+/* body{
+   background-image: url(loginbg5.jpg);
+ background-size: 100% 120%;
  background-repeat: no-repeat;
- background-position: center; */
+ background-position: center; 
  
-}
+} */
 .main
 {
   display: flex;
   flex-direction: row;
-  /* text-align: center; */
-  border: 2px solid rgb(48, 109, 162);
-  border-radius: 18px;
-  height: 300px;
-  width: 550px;
+  text-align: center;
+  border: 1px solid #ECEAE2;
+  height: 400px;
+  width: 700px;
   margin-top: 95px;
-  margin-left: 500px;
-  box-shadow: 5px 5px 2px rgb(69, 77, 81);
+  margin-left: 700px;
+  box-shadow: 2px 2px 1px #ECEAE2;
 }
 .Lname
 {
   text-align: center;
-  color:rgb(48, 109, 162);
+  color:rgb(24, 81, 130);
   text-shadow: 1px 1px 2px;
   font-size: large;
   font-weight: 600;
 }
 .Login
 {
- padding: 10px;
- border: 2px solid rgb(48, 109, 162);
- border-radius: 18px;
- margin-top: 21px;
- margin-left: 34px;
- height: 240px;
- width: 200px;
+
+ /* border: 2px solid rgb(48, 109, 162); */
+ margin-top: 0px;
+ margin-left: 0px;
+ height: 398px;
+ width: 380px; 
+ background-color: #ECEAE2;
 }
 .img1
 {
-  height:180px;
-  width: 280px;
-  margin-top: 55px;
+  height:340px;
+  width: 520px;
+  margin-top: 25px;
 }
 .img2
 {
@@ -63,16 +62,18 @@ body{
 }
 #username
 {
-  border-radius: 8px;
-  height: 20px;
-  width: 145px;
+  border:2px solid #ECEAE2;
+  border-radius: 3px;
+  height: 10px;
+  width: 185px;
   box-shadow: 2px 2px 1px gray;
 }
 #password
 {
-  border-radius: 8px;
-  height: 20px;
-  width: 145px;
+  border:2px solid #ECEAE2;
+  border-radius: 3px;
+  height: 10px;
+  width: 185px;
   box-shadow: 2px 2px 1px gray;
 }
 .sigin
@@ -82,13 +83,12 @@ body{
 }
 
 .submit{
-  border-radius: 5px;
-  padding: 5px;
-  height: 25px;
-  width: 100px;
+  border-radius: 3px;
+  height: 40px;
+  width: 210px;
   box-shadow: 2px 2px 1px gray;
   border: 2px solid rgb(48, 109, 162);
- background-color:rgb(114, 216, 229);
+  background-color:rgb(114, 216, 229);
  
 }
 .submit:hover
@@ -98,8 +98,8 @@ body{
 
 .head
 {
-  color: rgb(48, 109, 162);
-  font-weight: 700;
+  color: rgb(24, 81, 130);
+  font-weight: 900;
   font-family:Georgia, 'Times New Roman', Times, serif;
   text-shadow: 2px 1px 3px;
 }
@@ -110,7 +110,7 @@ body{
   display: flex;
   flex-direction: row;
   margin-top: 110px;
-  margin-left: 600px;
+  margin-left: 900px;
 }
 
 /* .sparent
