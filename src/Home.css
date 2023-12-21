@@ -1,15 +1,12 @@
-
-.logohome
+/* .homeparent
 {
-
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  margin-top: 0px;
-  margin-left: 600px;
-  margin-top: 20px;
-  margin-bottom: 30px;
-}
+  background-image: url(Homebgnew.jpeg);
+            
+            overflow: hidden;
+             width: 50vw; 
+            height: auto; 
+           
+} */
 
 /* body{
   background-image: url(loginbg1.jpg);
@@ -18,21 +15,21 @@
   background-position: center; 
 } */
 .car {
-    margin-left: 250px;
+    margin-left: 220px;
     width: 70%; 
     height: 360px; 
     border-radius:10px;
     box-shadow: 5px 5px  2px rgb(220, 239, 255) ;
-    margin-top: 50px;
+    margin-top: 75px;
     /* object-fit: cover;  */
   }
 .car3 {
-    margin-left: 250px;
+    margin-left: 220px;
     width: 70%; 
     height: 360px; 
     border-radius:10px;
     box-shadow: 5px 5px  2px rgb(220, 239, 255) ;
-    margin-top: 50px;
+    margin-top: 75px;
     /* object-fit: cover;  */
   }
 
@@ -48,7 +45,7 @@
   {
     border:2px solid whitesmoke;
     border-radius: 10px;
-    margin-left: 75px;
+    margin-left: 100px;
     width:300px;
     display: flex;
     flex-direction: row;
@@ -71,7 +68,30 @@
     border:2px solid whitesmoke;
     border-radius: 10px;
     width:300px;
-    margin-left: 75px;
+    margin-left: 100px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 5px 5px 2px rgb(199, 199, 199);
+  }
+  .box4
+  {
+    border:2px solid whitesmoke;
+    border-radius: 10px;
+    width:300px;
+    display: flex;
+    flex-direction: row;
+    margin-left: 350px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    box-shadow: 5px 5px 2px rgb(199, 199, 199);
+  }
+  .box5
+  {
+    border:2px solid whitesmoke;
+    border-radius: 10px;
+    width:300px;
+    margin-left: 100px;
     margin-bottom: 60px;
     display: flex;
     flex-direction: row;
@@ -80,7 +100,17 @@
   .home1{
     border-radius: 50%;
     height: 150px;
-    width: 190px;
+    width: 180px;
+  }
+  .home4{
+    border-radius: 50%;
+    height: 160px;
+    width: 180px;
+  }
+  .home3{
+    border-radius: 50%;
+    height: 130px;
+    width: 160px;
   }
   .text
   {
@@ -95,24 +125,25 @@
     width:50%;
     float: right;
     transform: rotate(28deg);
-    margin-right: 66px;
+    margin-right: 60px;
   }
 
   .homebgg
   {
    
-    height: 400px; 
-    margin-left: 400px; 
+    height: 450px; 
+    margin-left: 65px; 
     position: absolute;
     top:-100;
     z-index: -2;
-    max-width: 800px;
+    width: 85%;
+    margin-top: 0px;
   } 
 
 .main1
 {
-  transform: scale(200%);
-  margin-left:285px;
+  transform: scale(250%);
+  margin-left:270px;
   max-width: 700px;
   box-shadow: 3px 3px 2px white;
 }
@@ -165,3 +196,5 @@
 .items:hover {
   transform: scale(1.1);
 }
+
+

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import login from './login.png';
-import Logo1 from './Logo1.png';
-import loginbg from './loginbg.jpg';
+import loginbg5 from './loginbg5.jpg';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { Link } from 'react-router-dom';
@@ -12,12 +11,14 @@ function Login()
 
          {/* <img class="loginbg" src={loginbg} alt="Logo1"/> */}
 
-         <div class="logo">
+         {/* <div class="logo">
          <img class="img2" src={Logo1} alt="Logo1"/>
          <h1 class="head">SmartCart</h1>
-         </div>
+         </div> */}
+         <img class="bg1" src={loginbg5} alt="Logo1"/>
+
          <div className="main">
-         <img class="img1" src={login} alt="LoginImage"/>
+         <img class="loginimg1" src={login} alt="LoginImage"/>
          <div className="Login">
     <Box
       component="form"
@@ -36,15 +37,11 @@ function Login()
          <TextField id="password" label="Password*" variant="outlined"/>
          <br></br>
          <br></br>
-         <button class="submit">SignIn</button>
+         <Link to= '/home'> <button class="submit1"><span>SignIn</span> </button></Link> 
          <br></br>
          <br></br>
          <label for="newuser">NewUser?</label>
-          <button class="submit">
-            <Link to= '/Signup'>
-            <span>Signup!</span>
-            </Link> 
-            </button> 
+         <Link to= '/Signup'> <button class="submit1"><span>Signup!</span> </button></Link>
          </form>
          </Box>
          </div>

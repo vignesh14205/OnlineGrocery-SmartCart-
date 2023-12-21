@@ -1,39 +1,60 @@
-import React from "react";
+import * as React from 'react';
+import signupnew from './signupnew.png';
+import loginbg5 from './loginbg5.jpg';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 import { Link } from 'react-router-dom';
-import Logo1 from './Logo1.png';
-// import signup from './signup.png';
 class Signup extends React.Component
 {
     render()
     {
         return(
+            <div class='parent2'>
 
+            
             <div class="smain">
-            <div class="logo">
+            {/* <div class="logo">
             <img class="img2" src={Logo1} alt="Logo1"/>
             <h1 class="head">SmartCart</h1>
-            </div>
-                <div class="sform">
-                {/* <img class="img1" src={signup} alt="signup"/> */}
+            </div> */}
+            <img class="bg" src={loginbg5} alt="Logo1"/>
+            <div class="sform">
+            <img class="img1" src={signupnew} alt="Logo1"/>
                 <div class="form2">
+            <Box
+      component="form"
+      sx={{
+        '& > :not(style)': { m: 1, width: '25ch' },
+      }}
+      noValidate
+      autoComplete="off"
+    ></Box>
                     <form>
                     <p class="SUP">SIGNUP</p>
                     <label for="Uname">Username</label>
-                    <input type="text" id="Uname" placeholder="Username*"></input>
+                    <br></br>
+                    <TextField id="username" label="Username*" variant="outlined"/>
+                    <br></br>
                     <br></br>
                     <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="Email*"></input>
+                    <br></br>
+                    <TextField id="email" label="Email*" variant="outlined"/>
+                    <br></br>
                     <br></br>
                     <label for="Pass">CreatePassword</label>
-                    <input type="password" id="Pass" placeholder="Password*"></input>
+                    <br></br>
+                    <TextField id="password" label="Createpassword*" variant="outlined"/>
+                    <br></br>
                     <br></br>
                     <label for="number">PhoneNumber</label>
-                    <input type="tel" id="number" placeholder="Number*"></input>
+                    <br></br>
+                    <TextField id="number" label="Phonenumber*" variant="outlined"/>
                     <br></br>
                     <br></br>
-                    <button class="submit">SignUp</button>
+                    <Link to= '/home'><button class="submit"> <span>Signup</span></button> </Link>
                     </form>
                     </div>
+                </div>
                 </div>
                 </div>
         )

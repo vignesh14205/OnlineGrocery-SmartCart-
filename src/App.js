@@ -2,19 +2,21 @@
 import React from 'react';
 import './App.css';
 import './Home.css';
+import'./component/signup.css';
+import Nav from './component/Nav';
 import { BrowserRouter } from 'react-router-dom';
 import Navigator from './Router/Navigator';
-import Home from './component/Home';
-import Home1 from './component/Home1';
-import Home2 from './component/Home2';
-import Login from './component/Login';
 import 'bootstrap/dist/css/bootstrap.min.css';
+// import Signup from './component/Signup';
 
 function App() {
     return (
        <div>
-            <Home/>
-        </div> 
+        <BrowserRouter>
+        <Navigator/>
+        </BrowserRouter>
+        
+      </div> 
     );
 }
 
