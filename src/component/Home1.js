@@ -1,6 +1,13 @@
-import React from 'react'
-import { useState } from "react";
-import Logo1 from './Logo1.png';
+import React, { useState } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import SearchBar from "./Searchbar"; 
+import Nav from './Nav';
+import './Nav.css';
+import Footer from './Footer';
+import './Footer.css';
+
 import img1 from './img1.webp';
 import img2 from './img2.webp';
 import img3 from './img3.webp';
@@ -13,165 +20,121 @@ import img9 from './img9.webp';
 import img10 from './img10.webp';
 import img11 from './img11.webp';
 import img12 from './img12.webp';
+import img25 from './img25.webp';
+import img26 from './img26.webp';
+import img27 from './img27.webp';
+import img28 from './img28.webp';
+
+const products = [
+  { id: 1, name: "Carrot", image: img1 },
+  { id: 2, name: "Onion", image: img2 },
+  { id: 3, name: "Tomato", image: img3 },
+  { id: 4, name: "Potato", image: img4 },
+  { id: 5, name: "Coconut", image: img5 },
+  { id: 6, name: "Cauliflower", image: img6 },
+  { id: 7, name: "Kiwi", image: img7 },
+  { id: 8, name: "Apple", image: img8 },
+  { id: 9, name: "Pomegranate", image: img9 },
+  { id: 10, name: "Orange", image: img10 },
+  { id: 11, name: "Blueberry", image: img11 },
+  { id: 12, name: "RawMango", image: img12 },
+  { id: 13, name: "Banana", image: img25 },
+  { id: 14, name: "Mashroom", image: img26 },
+  { id: 15, name: "Gralic", image: img27 },
+  { id: 16, name: "Chilli(Green)", image: img28 },
+ 
+];
+
 export default function Home1() {
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [counts, setCounts] = useState(Array(products.length).fill(0));
+  const [filteredProducts, setFilteredProducts] = useState(products);
 
+  const changeCount = (index, increment) => {
+    const newCounts = [...counts];
+    newCounts[index] += increment;
+    setCounts(newCounts);
+  };
 
-    const [count,setCount]=useState(0);
-    const [count1,setCount1]=useState(0);
-    const [count2,setCount2]=useState(0);
-    const [count3,setCount3]=useState(0);
-    const [count4,setCount4]=useState(0);
-    const [count5,setCount5]=useState(0);
-    const [count6,setCount6]=useState(0);
-    const [count7,setCount7]=useState(0);
-    const [count8,setCount8]=useState(0);
-    const [count9,setCount9]=useState(0);
-    const [count10,setCount10]=useState(0);
-    const [count11,setCount11]=useState(0);
-    const changeCount=()=>setCount(count+1);
-    const derCount=()=>setCount(count-1);
-    const changeCount1=()=>setCount1(count1+1);
-    const derCount1=()=>setCount1(count1-1);
-    const changeCount2=()=>setCount2(count2+1);
-    const derCount2=()=>setCount2(count2-1);
-    const changeCount3=()=>setCount3(count3+1);
-    const derCount3=()=>setCount3(count3-1);
-    const changeCount4=()=>setCount4(count4+1);
-    const derCount4=()=>setCount4(count4-1);
-    const changeCount5=()=>setCount5(count5+1);
-    const derCount5=()=>setCount5(count5-1);
-    const changeCount6=()=>setCount6(count6+1);
-    const derCount6=()=>setCount6(count6-1);
-    const changeCount7=()=>setCount7(count7+1);
-    const derCount7=()=>setCount7(count7-1);
-    const changeCount8=()=>setCount8(count8+1);
-    const derCount8=()=>setCount8(count8-1);
-    const changeCount9=()=>setCount9(count9+1);
-    const derCount9=()=>setCount9(count9-1);
-    const changeCount10=()=>setCount10(count10+1);
-    const derCount10=()=>setCount10(count10-1);
-    const changeCount11=()=>setCount11(count11+1);
-    const derCount11=()=>setCount11(count11-1);
+  const handleSearch = (searchTerm) => {
+    const filtered = products.filter((product) =>
+      product.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredProducts(filtered);
+  };
 
-
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 300,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    centerMode: true,
+    variableWidth: true,
+    focusOnSelect: true,
+    afterChange: (current) => {
+    setSelectedProduct(filteredProducts[current]);
+    },
+  };
 
   return (
-    <div class="parent">
-          <div class="logohome">
-         <img class="img2" src={Logo1} alt="Logo1"/>
-         <h1 class="head">SmartCart</h1>
-         </div> 
-    <div class="image-container">
-    <figure class="image">
-      <div class="image1">
-    <img class="items" src={img1} alt="img1"/> 
-    <figcaption>
-     Carrot
-     <br></br>
-     Add to cart:{count}
-    <br></br>
-    <button onClick={changeCount}>+</button> <button onClick={derCount}>-</button> </figcaption>
+    <div className="parent">
+      <Nav/>
+      <SearchBar onSearch={handleSearch} />
+
+
+
+      <div class="cardmeat">
+      <div className="card4">
+        <img
+        src="https://img.freepik.com/free-photo/top-view-assortment-vegetables-paper-bag_23-2148853335.jpg?size=626&ext=jpg&uid=R131718550&ga=GA1.1.1728835906.1703087941&semt=ais"
+        alt="Card Image"
+        className="card4-image"/>
+        <div className="card-content">
+        <h2 className="card-title">Fruits And Vegetabels</h2>
+        <p className="card-text">
+        Immerse in peak freshness with our vibrant fruits and vegetables! 🍇🥦 Handpicked for quality and wholesomeness, our produce is a testament to care. Sourced with precision, each bite brings vitality to your plate. Welcome to a world where every delivery is a celebration of freshness and well-being. 🌽🍓 #FreshProduce #VibrantEating        </p>
+         </div>
+        </div>
     </div>
-    <div class="image1">
-    <img class="items" src={img2} alt="img2"/>
-    <figcaption>
-    Onion
-     <br></br> 
-    Add to cart:{count1}
-    <br></br>
-    <button onClick={changeCount1}>+</button> <button onClick={derCount1}>-</button> </figcaption>
+
+
+      <div className="image-container">
+        <figure className="image">
+          {filteredProducts.map((product, index) => (
+            <div className="image1" key={index}>
+              <img className="items" src={product.image} alt={`img${index + 1}`} />
+              <figcaption>
+                <strong>{product.name}</strong>
+                <br />
+                <span>Add to cart: {counts[index]}</span>
+                <br />
+                <button onClick={() => changeCount(index, 1)}>+</button>{" "}
+                <button onClick={() => changeCount(index, -1)}>-</button>{" "}
+              </figcaption>
+            </div>
+          ))}
+        </figure>
+      </div>
+
+      {/* <div className="product-slider">
+        <Slider {...settings}>
+          {filteredProducts.map((product) => (
+            <div key={product.id} className="product-slide">
+              <img src={product.image} alt={product.name} />
+            </div>
+          ))}
+        </Slider>
+        <div className="selected-product">
+          {selectedProduct && (
+            <>
+              <h3>{selectedProduct.name}</h3>
+              <p>Select quantity, add to cart, etc.</p>
+            </>
+          )}
+        </div>
+      </div> */}
+      <Footer/>
     </div>
-    <div class="image1">
-    <img class="items" src={img3} alt="img3"/>
-    <figcaption>  
-      Tomato
-     <br></br>
-      Add to cart:{count2}
-    <br></br>
-    <button onClick={changeCount2}>+</button> <button onClick={derCount2}>-</button> </figcaption>
-    </div>
-    <div class="image1">
-    <img class="items" src={img4} alt="img4"/>
-    <figcaption> 
-    Potato
-     <br></br>
-      Add to cart:{count3}
-    <br></br>
-    <button onClick={changeCount3}>+</button> <button onClick={derCount3}>-</button> </figcaption>
-    </div>
-    <div class="image1">
-    <img class="items" src={img5} alt="img5"/>
-    <figcaption> 
-    Coconut
-     <br></br>
-      Add to cart:{count4}
-    <br></br>
-    <button onClick={changeCount4}>+</button> <button onClick={derCount4}>-</button> </figcaption>
-    </div>
-    <div class="image1">
-    <img class="items" src={img6} alt="img6"/>
-    <figcaption> 
-    Caulioflower
-     <br></br>
-      Add to cart:{count5}
-    <br></br>
-    <button onClick={changeCount5}>+</button> <button onClick={derCount5}>-</button> </figcaption>
-    </div>
-    <div class="image1">
-    <img class="items" src={img7} alt="img1"/> 
-    <figcaption>
-     Kiwi
-     <br></br>
-     Add to cart:{count6}
-    <br></br>
-    <button onClick={changeCount6}>+</button> <button onClick={derCount6}>-</button> </figcaption>
-    </div>
-    <div class="image1">
-    <img class="items" src={img8} alt="img2"/>
-    <figcaption>
-    Apple
-     <br></br>
-       Add to cart:{count7}
-    <br></br>
-    <button onClick={changeCount7}>+</button> <button onClick={derCount7}>-</button> </figcaption>
-    </div>
-    <div class="image1">
-    <img class="items" src={img9} alt="img3"/>
-    <figcaption>
-    Pomegranate
-     <br></br>
-       Add to cart:{count8}
-    <br></br>
-    <button onClick={changeCount8}>+</button> <button onClick={derCount8}>-</button> </figcaption>
-    </div>
-    <div class="image1">
-    <img class="items" src={img10} alt="img4"/>
-    <figcaption> 
-    Orange
-     <br></br>
-      Add to cart:{count9}
-    <br></br>
-    <button onClick={changeCount9}>+</button> <button onClick={derCount9}>-</button> </figcaption>
-    </div>
-    <div class="image1">
-    <img class="items" src={img11} alt="img5"/>
-    <figcaption> Add to cart:{count10}
-    <br></br>
-    Blueberry
-     <br></br>
-    <button onClick={changeCount10}>+</button> <button onClick={derCount10}>-</button> </figcaption>
-    </div>
-    <div class="image1">
-    <img class="items" src={img12} alt="img6"/>
-    <figcaption> 
-    Rawmango
-     <br></br>
-      Add to cart:{count11}
-    <br></br>
-    <button onClick={changeCount11}>+</button> <button onClick={derCount11}>-</button> </figcaption>
-    </div>
-</figure>
-    </div>
-    </div>
-  )
+  );
 }

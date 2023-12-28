@@ -36,7 +36,7 @@ class Nav extends React.Component {
                 <a href="#contact">Contact</a>
               </li>
               <li>
-                <a href="#singout">Signout</a>
+                <a href="#singout">SignIn/SignOut</a>
               </li>
 
             </ul>

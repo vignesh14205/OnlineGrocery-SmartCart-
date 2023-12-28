@@ -21,6 +21,7 @@ class Signup extends React.Component
             <div class="sform">
             <img class="img1" src={signupnew} alt="Logo1"/>
                 <div class="form2">
+                <h1 class="head">SmartCart</h1>
             <Box
       component="form"
       sx={{
