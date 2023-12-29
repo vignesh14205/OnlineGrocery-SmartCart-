@@ -89,7 +89,6 @@ export default function Home1() {
       <Nav/>
 
 
-        <SearchBar onSearch={handleSearch} />
 
     <div class="cardmeat">
       <div className="card4">
@@ -106,6 +105,7 @@ export default function Home1() {
         </div>
     </div>
       
+        <SearchBar onSearch={handleSearch} />
 
       <div className="image-container">
         <figure className="image">

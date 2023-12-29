@@ -1,5 +1,6 @@
 import React from "react";
 import Logo1 from './Logo1.png';
+
 class Nav extends React.Component {
   state = {
     menuToggle: false,
@@ -19,8 +20,8 @@ class Nav extends React.Component {
         <nav id="navbar" className={menuToggle ? "menu-open" : ""}>
           <div className="nav-wrapper">
             <div className="logo">
-            <img class="img2" src={Logo1} alt="Logo1"/>
-            <h1 class="head">SmartCart</h1>
+              <img className="img2" src={Logo1} alt="Logo1" />
+              <h1 className="head">SmartCart</h1>
             </div>
             <ul id="menu">
               <li>
@@ -38,7 +39,6 @@ class Nav extends React.Component {
               <li>
                 <a href="#singout">SignIn/SignOut</a>
               </li>
-
             </ul>
           </div>
         </nav>

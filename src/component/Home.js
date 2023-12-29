@@ -115,7 +115,7 @@ export default function Home()
       </div>
     </div>
     </Slider>
-
+    
    <div class="cards">
 
         <div className="card">
@@ -177,6 +177,7 @@ export default function Home()
         </div>
         </div>
         </div>
+      
       <Footer/>
      </div>
   )

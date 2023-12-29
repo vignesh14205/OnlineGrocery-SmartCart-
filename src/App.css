@@ -1,26 +1,29 @@
-.bg1
-{
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top:0;
-    z-index: -2;
-    margin-top: 0px;
+.loginparent {
+  background-image: url(loginbgnew.jpg);
+  background-size: cover; 
+  background-position: center center; 
+  min-height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
+
 .lmain
 {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   flex-direction: row;
   text-align: center;
   border: 1px solid #a1a1a1;
-  height: 400px;
-  width: 620px;
-  margin-top: 250px;
-  margin-left: 750px;
-  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+  height: 450px;
+  width: 650px;
+  margin-top: 0px;
+  margin-left: 0px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  /* border-radius: 10px; */
   background: transparent;
-  backdrop-filter: blur(1px);
+  backdrop-filter: blur(5px);
 }
 .Lname
 {
@@ -33,33 +36,38 @@
 .Login
 {
  margin-top: 0px;
- margin-left: 60px;
- height: 398px;
- align-items: center;
- width: 280px; 
- background-color: #eeece7;
+ margin-left: 0px;
+ height: 448px;
+ /* align-items: center; */
+ width: 290px; 
+ background-color: #e4af28;
+ color: #ECEAE2;
+ /* border-radius: 10px; */
+ /* background: transparent; */
+ backdrop-filter: blur(20px);
 }
  .loginimg1
 {
-  height:270px;
-  width: 320px;
-  margin-top: 25px;
+  width: 400px;
+  height: 450px;
+  /* object-fit: cover; */
 }
 #username
 {
-  border:2px solid #ECEAE2;
-  border-radius: 3px;
+  border:1px solid #636ee8;
+  /* border-radius: 2px; */
   height: 10px;
+  font-size: large;
   width: 185px;
-  box-shadow: 2px 2px 1px gray;
+  /* box-shadow: 2px 2px 1px gray; */
 }
 #password
 {
-  border:2px solid #ECEAE2;
-  border-radius: 3px;
+  border:1px solid #636ee8;
+  /* border-radius: 3px; */
   height: 10px;
   width: 185px;
-  box-shadow: 2px 2px 1px gray;
+  /* box-shadow: 2px 2px 1px gray; */
 }
 .sigin
 {
@@ -73,14 +81,14 @@
   width: 210px;
   box-shadow: 2px 2px 1px gray;
   border: 2px solid rgb(48, 109, 162);
-  background-color:rgb(114, 216, 229);
+  background-color:rgb(103, 140, 172);
   outline: none;
     border: none;
  
 }
 .submit1:hover
 {
-  background-color: rgb(228, 238, 247);
+  background-color: rgb(78, 117, 151);
 }
 
 .h1
@@ -105,5 +113,5 @@
     outline: none;
     border: none;
     text-decoration: none;
-    color: black;
+    color: rgb(255, 255, 255);
 }

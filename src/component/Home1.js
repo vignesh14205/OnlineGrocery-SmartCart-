@@ -80,7 +80,6 @@ export default function Home1() {
   return (
     <div className="parent">
       <Nav/>
-      <SearchBar onSearch={handleSearch} />
 
 
 
@@ -98,6 +97,7 @@ export default function Home1() {
         </div>
     </div>
 
+      <SearchBar onSearch={handleSearch} />
 
       <div className="image-container">
         <figure className="image">

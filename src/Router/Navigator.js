@@ -19,6 +19,7 @@ export default function Navigator() {
         <Route path='/home2' element = {<Home2 />}></Route>
         <Route path='/home3' element = {<Home3 />}></Route>
         <Route path='/home4' element = {<Home4 />}></Route>
+        
       </Routes>
     </div>
   )

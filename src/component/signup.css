@@ -1,3 +1,4 @@
+
 .bg
 {
     height: 100%;
@@ -19,7 +20,7 @@
     box-shadow: 2px 2px 1px #ECEAE2;
     box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
     background: transparent;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(20px);
 
 }
 .form2
@@ -45,7 +46,7 @@
 {
     border:2px solid #ECEAE2;
     border-radius: 3px;
-    height: 10px;
+    height: 8px;
     width: 185px;
     box-shadow: 2px 2px 1px gray;
 }
@@ -101,8 +102,8 @@ margin-left: 600px;
   height:200px;
   transform: scale(200%);
   width: 200px;
-  margin-top: 125px;
- margin-left:80px;
+  margin-top: 155px;
+ margin-left:90px;
 }
 
 .submit{
@@ -113,10 +114,10 @@ margin-left: 600px;
     width: 210px;
     box-shadow: 2px 2px 1px gray;
     border: 2px solid rgb(48, 109, 162);
-    background-color:rgb(114, 216, 229);
+    background-color:rgb(103, 140, 172);
  
 }
 .submit:hover
 {
-  background-color: rgb(228, 238, 247);
+  background-color: rgb(78, 117, 151);
 }

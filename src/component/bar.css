@@ -1,11 +1,11 @@
 .search-bar {
     margin-top: 100px;
     margin-bottom: 20px;
-    margin-left: 80px;
+    margin-left: 140px;
     display: flex;
     justify-content: center;
     border: 1px solid #fff8f8;
-    width: 90%;
+    width: 75%;
   }
   
   .search-bar input {
