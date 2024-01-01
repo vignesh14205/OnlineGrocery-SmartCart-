@@ -422,3 +422,65 @@ button:hover {
   margin-left: 100px;
   object-fit: cover;
 }
+
+
+/* Cart.css */
+
+/* Add this CSS to your existing stylesheet or create a new one */
+
+.cart {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  margin-top: 20px;
+  width: 1000px;
+  margin-left: 250px;
+}
+
+.cart h2 {
+  color: #333;
+}
+
+.cart ul {
+  list-style: none;
+  padding: 0;
+}
+
+.cart li {
+  border-bottom: 1px solid #eee;
+  padding: 12px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cartbutton {
+  display: flex;
+  gap: 8px;
+}
+
+.cartbutton button {
+  background-color: #4caf50;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.cartbutton button:hover {
+  background-color: #45a049;
+}
+
+.cartbutton button:active {
+  background-color: #3e8e41;
+}
+
+.cart p {
+  margin-top: 16px;
+  font-size: 18px;
+  font-weight: bold;
+}

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -22,18 +23,18 @@ import img23 from './img23.webp';
 import img24 from './img24.webp';
 
 const products = [
-  { id: 1, name: "Milkbikis", image: img13 },
-  { id: 2, name: "Maggie", image: img14 },
-  { id: 3, name: "LittleHearts", image: img15 },
-  { id: 4, name: "GoodDay", image: img16 },
-  { id: 5, name: "ParleG", image: img17 },
-  { id: 6, name: "Lays", image: img18 },
-  { id: 7, name: "Milbikis(Cream)", image: img19 },
-  { id: 8, name: "Dosa(Batter)", image: img20 },
-  { id: 9, name: "Kurkure", image: img21 },
-  { id: 10, name: "Cheetos", image: img22 },
-  { id: 11, name: "Nutella", image: img23 },
-  { id: 12, name: "Chocos", image: img24 },
+  { id: 1, name: "Milkbikis",price: 58, image: img13 },
+  { id: 2, name: "Maggie",price: 80, image: img14 },
+  { id: 3, name: "LittleHearts",price: 25, image: img15 },
+  { id: 4, name: "GoodDay",price: 158, image: img16 },
+  { id: 5, name: "ParleG",price: 10, image: img17 },
+  { id: 6, name: "Lays",price: 100, image: img18 },
+  { id: 7, name: "Milbikis(Cream)",price: 58, image: img19 },
+  { id: 8, name: "Dosa(Batter)",price: 50, image: img20 },
+  { id: 9, name: "Kurkure",price: 50, image: img21 },
+  { id: 10, name: "Cheetos",price: 50, image: img22 },
+  { id: 11, name: "Nutella",price: 200, image: img23 },
+  { id: 12, name: "Chocos",price: 50, image: img24 },
 ];
 
 export default function Home1() {
@@ -68,6 +69,53 @@ export default function Home1() {
     },
   };
 
+  const [cart, setCart] = useState([]);
+  useEffect(() => {
+    console.log('Cart type:', typeof cart);
+  }, [cart]);
+
+const addToCart = (product) => {
+    const existingItem = cart.find((item) => item.id === product.id);
+
+    if (existingItem) {
+    
+      setCart(
+        cart.map((item) =>
+          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+        )
+      );
+    } else {
+      setCart([...cart, { ...product, quantity: 1 }]);
+    }
+  };
+
+
+  const removeFromCart = (productId) => {
+    const updatedCart = cart.filter(item => item.id !== productId);
+    setCart(updatedCart);
+  };
+
+  const increaseQuantity = (productId) => {
+    const updatedCart = cart.map(item =>
+      item.id === productId ? { ...item, quantity: item.quantity + 1 } : item
+    );
+    setCart(updatedCart);
+  };
+
+  const decreaseQuantity = (productId) => {
+    const updatedCart = cart.map(item =>
+      item.id === productId && item.quantity > 1
+        ? { ...item, quantity: item.quantity - 1 }
+        : item
+    );
+    setCart(updatedCart);
+  };
+
+
+  const calculateTotalPrice = () => {
+    return cart.reduce((total, item) => total + item.price * item.quantity, 0);
+  };
+
   return (
     <div className="parent">
       <Nav/>
@@ -96,10 +144,10 @@ export default function Home1() {
               <figcaption>
                 <strong>{product.name}</strong>
                 <br />
-                <span>Add to cart: {counts[index]}</span>
+                <strong>₹{product.price}</strong>
+                {/* <span>Add to cart: {counts[index]}</span> */}
                 <br />
-                <button onClick={() => changeCount(index, 1)}>+</button>{" "}
-                <button onClick={() => changeCount(index, -1)}>-</button>{" "}
+               <button onClick={() => addToCart(product)}>Add to Cart</button>
               </figcaption>
             </div>
           ))}
@@ -123,7 +171,27 @@ export default function Home1() {
           )}
         </div>
       </div> */}
+      <div class="cart">
+        <h2>Shopping Cart</h2>
+        <ul>
+          {cart.map((item, index) => (
+            <li key={index}>
+              {item.name} - ₹{item.price} - Quantity: {item.quantity}
+              <div class="cartbutton">
+              <button onClick={() => increaseQuantity(item.id)}>+</button>
+              <button onClick={() => decreaseQuantity(item.id)}>-</button>
+              <button onClick={() => removeFromCart(item.id)}>Remove</button>
+              </div>
+            </li>
+          ))}
+        </ul>
+        <p>Total Price: ₹{calculateTotalPrice().toFixed(2)}</p>
+        <Link to='/cart'>
+          <button>Buy</button>
+          </Link>
+      </div>
       <Footer/>
     </div>
   );
 }
+

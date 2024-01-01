@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -33,15 +34,15 @@ import img50 from './img50.webp';
 // import img28 from './img28.webp';
 
 const products = [
-  { id: 1, name: "Egg(5P)", image: img42 },
-  { id: 2, name: "Chicken(smallpieces)", image: img43 },
-  { id: 3, name: "Chicken(Boneless)", image: img44 },
-  { id: 4, name: "Fish(Katla)", image: img45 },
-  { id: 5, name: "ChickenSauage", image: img46 },
-  { id: 6, name: "ChickenNuggets", image: img47 },
-  { id: 7, name: "Prawns", image: img48 },
-  { id: 8, name: "DryFish", image: img49 },
-  { id: 9, name: "Egg(12P)", image: img50 },
+  { id: 1, name: "Egg(5P)",price: 100, image: img42 },
+  { id: 2, name: "Chicken(smallpieces)",price: 250, image: img43 },
+  { id: 3, name: "Chicken(Boneless)",price: 158, image: img44 },
+  { id: 4, name: "Fish(Katla)",price: 550, image: img45 },
+  { id: 5, name: "ChickenSauage",price: 320, image: img46 },
+  { id: 6, name: "ChickenNuggets",price: 300, image: img47 },
+  { id: 7, name: "Prawns",price: 258, image: img48 },
+  { id: 8, name: "DryFish",price: 130, image: img49 },
+  { id: 9, name: "Egg(12P)",price: 120, image: img50 },
 //   { id: 10, name: "Orange", image: img10 },
 //   { id: 11, name: "Blueberry", image: img11 },
 //   { id: 12, name: "RawMango", image: img12 },
@@ -84,6 +85,54 @@ export default function Home1() {
     },
   };
 
+  const [cart, setCart] = useState([]);
+  useEffect(() => {
+    console.log('Cart type:', typeof cart);
+  }, [cart]);
+
+const addToCart = (product) => {
+    const existingItem = cart.find((item) => item.id === product.id);
+
+    if (existingItem) {
+    
+      setCart(
+        cart.map((item) =>
+          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+        )
+      );
+    } else {
+      setCart([...cart, { ...product, quantity: 1 }]);
+    }
+  };
+
+
+  const removeFromCart = (productId) => {
+    const updatedCart = cart.filter(item => item.id !== productId);
+    setCart(updatedCart);
+  };
+
+  const increaseQuantity = (productId) => {
+    const updatedCart = cart.map(item =>
+      item.id === productId ? { ...item, quantity: item.quantity + 1 } : item
+    );
+    setCart(updatedCart);
+  };
+
+  const decreaseQuantity = (productId) => {
+    const updatedCart = cart.map(item =>
+      item.id === productId && item.quantity > 1
+        ? { ...item, quantity: item.quantity - 1 }
+        : item
+    );
+    setCart(updatedCart);
+  };
+
+
+  const calculateTotalPrice = () => {
+    return cart.reduce((total, item) => total + item.price * item.quantity, 0);
+  };
+
+
   return (
     <div className="parent">
       <Nav/>
@@ -115,10 +164,10 @@ export default function Home1() {
               <figcaption>
                 <strong>{product.name}</strong>
                 <br />
-                <span>Add to cart: {counts[index]}</span>
+                <strong>₹{product.price}</strong>
+                {/* <span>Add to cart: {counts[index]}</span> */}
                 <br />
-                <button onClick={() => changeCount(index, 1)}>+</button>{" "}
-                <button onClick={() => changeCount(index, -1)}>-</button>{" "}
+               <button onClick={() => addToCart(product)}>Add to Cart</button>
               </figcaption>
             </div>
           ))}
@@ -142,6 +191,25 @@ export default function Home1() {
           )}
         </div>
       </div> */}
+      <div class="cart">
+        <h2>Shopping Cart</h2>
+        <ul>
+          {cart.map((item, index) => (
+            <li key={index}>
+              {item.name} - ₹{item.price} - Quantity: {item.quantity}
+              <div class="cartbutton">
+              <button onClick={() => increaseQuantity(item.id)}>+</button>
+              <button onClick={() => decreaseQuantity(item.id)}>-</button>
+              <button onClick={() => removeFromCart(item.id)}>Remove</button>
+              </div>
+            </li>
+          ))}
+        </ul>
+        <p>Total Price: ₹{calculateTotalPrice().toFixed(2)}</p>
+      </div>
+      <Link to='/cart'>
+          <button>Buy</button>
+          </Link>
       <Footer/>
     </div>
   );
