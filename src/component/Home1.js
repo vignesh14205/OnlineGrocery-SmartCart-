@@ -7,7 +7,10 @@ import Nav from './Nav';
 import './Nav.css';
 import Footer from './Footer';
 import './Footer.css';
-import './Cart';
+import './ShoppingCartPage';
+import Checkout from './Checkout';
+import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
+import Alert from '@mui/material/Alert';
 
 import img1 from './img1.webp';
 import img2 from './img2.webp';
@@ -25,8 +28,9 @@ import img25 from './img25.webp';
 import img26 from './img26.webp';
 import img27 from './img27.webp';
 import img28 from './img28.webp';
-import Cart from "./Cart";
+import Cart from "./ShoppingCartPage";
 import { Link } from "react-router-dom";
+import { useCart } from './CardContext';
 
 export default function Home1() {
 
@@ -52,6 +56,7 @@ export default function Home1() {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [counts, setCounts] = useState(Array(products.length).fill(0));
   const [filteredProducts, setFilteredProducts] = useState(products);
+  const [showAlert, setShowAlert] = useState(false);
 
   const changeCount = (index, increment) => {
     const newCounts = [...counts];
@@ -66,40 +71,37 @@ export default function Home1() {
     setFilteredProducts(filtered);
   };
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 300,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    centerMode: true,
-    variableWidth: true,
-    focusOnSelect: true,
-    afterChange: (current) => {
-    setSelectedProduct(filteredProducts[current]);
-    },
-  };
 
   const [cart, setCart] = useState([]);
+  const [checkout] = useState([]);
   useEffect(() => {
     console.log('Cart type:', typeof cart);
   }, [cart]);
 
-const addToCart = (product) => {
-    const existingItem = cart.find((item) => item.id === product.id);
+  const { addToCart } = useCart();
 
-    if (existingItem) {
+const handleAddToCart = (product) => {
+
+    addToCart(product);
+
     
+    const existingItem = cart.find((item) => item.id === product.id);
+    
+    if (existingItem) {
+      
       setCart(
         cart.map((item) =>
-          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+        item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
         )
-      );
-    } else {
-      setCart([...cart, { ...product, quantity: 1 }]);
-    }
-  };
+        );
+      } else {
+        setCart([...cart, { ...product, quantity: 1 }]);
+      }
 
+      
+    };
+    
+    
 
   const removeFromCart = (productId) => {
     const updatedCart = cart.filter(item => item.id !== productId);
@@ -128,8 +130,24 @@ const addToCart = (product) => {
   };
 
   
+  const [showNewPage, setShowNewPage] = useState(false);
+
+  const openNewPage = () => {
+    setShowNewPage(true);
+  };
+
+  
+
+  
+  
+    // Calculate the total quantity of items in the cart
+    const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
+
+    
+
   return (
     <div className="parent">
+      
       <Nav/>
       <div class="cardmeat">
       <div className="card4">
@@ -158,12 +176,14 @@ const addToCart = (product) => {
                 <strong>₹{product.price}</strong>
                 {/* <span>Add to cart: {counts[index]}</span> */}
                 <br />
-               <button onClick={() => addToCart(product)}>Add to Cart</button>
+               <button onClick={() =>handleAddToCart(product)}>Add to Cart</button>
               </figcaption>
               
             </div>
           ))}
         </figure>
+
+        {showAlert && <Alert severity="success">Item added to cart!</Alert>}
       </div>
 
       {/* <div className="product-slider">
@@ -181,15 +201,16 @@ const addToCart = (product) => {
               <p>Select quantity, add to cart, etc.</p>
             </>
           )}
-        </div>
-      </div> */}
+          </div>
+        </div> */}
 
-<div class="cart">
-        <h2>Shopping Cart</h2>
+{/* <div class="cart">
+  
+  <h2>Shopping Cart</h2>
         <ul>
           {cart.map((item, index) => (
             <li key={index}>
-              {item.name} - ₹{item.price} - Quantity: {item.quantity}
+            {item.name} - ₹{item.price} - Quantity: {item.quantity}
               <div class="cartbutton">
               <button onClick={() => increaseQuantity(item.id)}>+</button>
               <button onClick={() => decreaseQuantity(item.id)}>-</button>
@@ -197,13 +218,32 @@ const addToCart = (product) => {
               </div>
             </li>
           ))}
-        </ul>
+          </ul>
           <p>Total Price: ₹{calculateTotalPrice().toFixed(2)}</p>
-          <Link to='/cart'>
-          <button>Buy</button>
-          </Link>
+        </div> */}
+        {/* <div className="cart-icon">
+          <span>{totalQuantity}</span>
+         </div>
+          <Link to="/shopping-cart">
+            <ShoppingCartCheckoutIcon class="cartlogo"/>
+          </Link> */}
+          
+          {cart.length > 0 && (
+  <div class="cart">
+  
+  <h2>Items Added</h2>
+  <ul>
+    {cart.map((item, index) => (
+      <li key={index}>
+        {item.name} - ₹{item.price} - Quantity: {item.quantity}
+      </li>
+    ))}
+    </ul>
+    <p>Total Price: ₹{calculateTotalPrice().toFixed(2)}</p>
+</div> )}
+
+
        
-      </div>
       <Footer/>
     </div>
   );

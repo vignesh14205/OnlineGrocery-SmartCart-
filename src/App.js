@@ -3,15 +3,11 @@ import React from 'react';
 import './App.css';
 import './Home.css';
 import'./component/signup.css';
-import Nav from './component/Nav';
-import Home3 from './component/Home3';
-import { BrowserRouter } from 'react-router-dom';
 import Navigator from './Router/Navigator';
+import { BrowserRouter } from 'react-router-dom';
+import Checkout from './component/Checkout';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Cart from './component/Cart';
-//  import Contactus from './component/Contactus';
-// import Pro from './Pro/Pro';
-// import Signup from './component/Signup';
+import Map from './component/Map';
 
 function App() {
     return (
@@ -19,7 +15,8 @@ function App() {
         <BrowserRouter>
         <Navigator/>
         </BrowserRouter>
-       {/* <Cart/> */}
+        {/* <Cart/> */}
+        {/* <Map/> */}
       </div> 
     );
 }

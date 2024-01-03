@@ -61,7 +61,7 @@ a {
 .logo {
   float: left;
   margin: 0;
-  margin-top: 65px;
+  margin-top: 78px;
   margin-left: 0;
   height: 10px;
   letter-spacing: 1px;
@@ -186,4 +186,34 @@ a {
 .overlay-menu li a:active {
   color: #1c79b8;
   transition: color 0.3s ease;
+}
+
+.navcartlogo
+{
+  height: 50px;
+  width: 50px;
+  color: #45a049;
+}
+/* Add these styles to your CSS file or style block */
+
+.navcart-icon {
+  position: relative;
+  display: flex;
+  /* align-items: center;
+  justify-content: center; */
+  width: 15px;
+  height: 15px;
+  background-color: #ffffff; /* Choose your background color */
+  border-radius: 5%;
+  color:#003003; /* Choose your text color */
+  font-size: 15px;
+ font-weight: bolder;
+  cursor: pointer;
+}
+
+.navcart-icon span {
+  /* position: absolute; */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

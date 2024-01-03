@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 
 import Logo1 from './Logo1.png';
 import car1 from './car1.webp';
@@ -30,8 +30,15 @@ import { CardActionArea } from '@mui/material';
 import CardGallery from './Card';
 
 
+
 export default function Home()
  {
+
+  const [showNewPage, setShowNewPage] = useState(false);
+
+  const openNewPage = () => {
+    setShowNewPage(true);
+  };
 
   const settings = {
     dots: true,

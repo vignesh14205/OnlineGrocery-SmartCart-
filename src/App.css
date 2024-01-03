@@ -185,3 +185,52 @@
   width: 100%;
   transition: background 0.3s ease;
  }
+
+ /* Checkout.css */
+
+.check {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fffcfc;
+  width: 500px;
+  margin-left: 500px;
+}
+
+.check h2 {
+  color: #333;
+}
+
+.check ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.check li {
+  margin-bottom: 8px;
+}
+
+.check select {
+  padding: 8px;
+  margin-top: 8px;
+}
+
+.check button {
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.check button:disabled {
+  background-color: #ddd;
+  color: #555;
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: #f00;
+}

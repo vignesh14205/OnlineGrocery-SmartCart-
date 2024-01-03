@@ -21,6 +21,8 @@ import img37 from './img37.webp';
 import img38 from './img38.webp';
 import img39 from './img39.webp';
 import img40 from './img40.webp';
+import { useCart } from './CardContext';
+import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 
 const products = [
   { id: 1, name: "TataSalt",price: 20, image: img29 },
@@ -37,7 +39,7 @@ const products = [
   { id: 12, name: "GoldWinner",price: 118, image: img40 },
 ];
 
-export default function Home1() {
+export default function Home3() {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [counts, setCounts] = useState(Array(products.length).fill(0));
   const [filteredProducts, setFilteredProducts] = useState(products);
@@ -55,26 +57,19 @@ export default function Home1() {
     setFilteredProducts(filtered);
   };
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 300,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    centerMode: true,
-    variableWidth: true,
-    focusOnSelect: true,
-    afterChange: (current) => {
-    setSelectedProduct(filteredProducts[current]);
-    },
-  };
 
   const [cart, setCart] = useState([]);
+  const [checkout] = useState([]);
   useEffect(() => {
     console.log('Cart type:', typeof cart);
   }, [cart]);
 
-const addToCart = (product) => {
+  const { addToCart } = useCart();
+
+const handleAddToCart = (product) => {
+
+    addToCart(product);
+
     const existingItem = cart.find((item) => item.id === product.id);
 
     if (existingItem) {
@@ -116,6 +111,18 @@ const addToCart = (product) => {
     return cart.reduce((total, item) => total + item.price * item.quantity, 0);
   };
 
+  
+  const [showNewPage, setShowNewPage] = useState(false);
+
+  const openNewPage = () => {
+    setShowNewPage(true);
+  };
+
+  
+  
+    // Calculate the total quantity of items in the cart
+    const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
+
 
   return (
     <div className="parent">
@@ -138,64 +145,86 @@ const addToCart = (product) => {
         </div>
     </div>
 
-      <SearchBar onSearch={handleSearch} />
+    <SearchBar onSearch={handleSearch} />
 
-
-      <div className="image-container">
-        <figure className="image">
-          {filteredProducts.map((product, index) => (
-            <div className="image1" key={index}>
-              <img className="items" src={product.image} alt={`img${index + 1}`} />
-              <figcaption>
-                <strong>{product.name}</strong>
-                <br />
-                <strong>₹{product.price}</strong>
-                {/* <span>Add to cart: {counts[index]}</span> */}
-                <br />
-               <button onClick={() => addToCart(product)}>Add to Cart</button>
-              </figcaption>
-            </div>
-          ))}
-        </figure>
+<div className="image-container">
+  <figure className="image">
+    {filteredProducts.map((product, index) => (
+      <div className="image1" key={index}>
+        <img className="items" src={product.image} alt={`img${index + 1}`} />
+        <figcaption>
+          <strong>{product.name}</strong>
+          <br />
+          <strong>₹{product.price}</strong>
+          {/* <span>Add to cart: {counts[index]}</span> */}
+          <br />
+         <button onClick={() =>handleAddToCart(product)}>Add to Cart</button>
+        </figcaption>
+        
       </div>
+    ))}
+  </figure>
+</div>
 
-      {/* <div className="product-slider">
-        <Slider {...settings}>
-          {filteredProducts.map((product) => (
-            <div key={product.id} className="product-slide">
-              <img src={product.image} alt={product.name} />
-            </div>
-          ))}
-        </Slider>
-        <div className="selected-product">
-          {selectedProduct && (
-            <>
-              <h3>{selectedProduct.name}</h3>
-              <p>Select quantity, add to cart, etc.</p>
-            </>
-          )}
-        </div>
-      </div> */}
-      <div class="cart">
-        <h2>Shopping Cart</h2>
-        <ul>
-          {cart.map((item, index) => (
-            <li key={index}>
-              {item.name} - ₹{item.price} - Quantity: {item.quantity}
-              <div class="cartbutton">
-              <button onClick={() => increaseQuantity(item.id)}>+</button>
-              <button onClick={() => decreaseQuantity(item.id)}>-</button>
-              <button onClick={() => removeFromCart(item.id)}>Remove</button>
-              </div>
-            </li>
-          ))}
-        </ul>
-        <p>Total Price: ₹{calculateTotalPrice().toFixed(2)}</p>
-        <Link to='/cart'>
-          <button>Buy</button>
-          </Link>
+{/* <div className="product-slider">
+  <Slider {...settings}>
+    {filteredProducts.map((product) => (
+      <div key={product.id} className="product-slide">
+        <img src={product.image} alt={product.name} />
       </div>
-      <Footer/>
+    ))}
+  </Slider>
+  <div className="selected-product">
+    {selectedProduct && (
+      <>
+        <h3>{selectedProduct.name}</h3>
+        <p>Select quantity, add to cart, etc.</p>
+      </>
+    )}
     </div>
-  );
+  </div> */}
+
+{/* <div class="cart">
+
+<h2>Shopping Cart</h2>
+  <ul>
+    {cart.map((item, index) => (
+      <li key={index}>
+      {item.name} - ₹{item.price} - Quantity: {item.quantity}
+        <div class="cartbutton">
+        <button onClick={() => increaseQuantity(item.id)}>+</button>
+        <button onClick={() => decreaseQuantity(item.id)}>-</button>
+        <button onClick={() => removeFromCart(item.id)}>Remove</button>
+        </div>
+      </li>
+    ))}
+    </ul>
+    <p>Total Price: ₹{calculateTotalPrice().toFixed(2)}</p>
+  </div> */}
+  {/* <div className="cart-icon">
+    <span>{totalQuantity}</span>
+   </div>
+    <Link to="/shopping-cart">
+      <ShoppingCartCheckoutIcon class="cartlogo"/>
+    </Link> */}
+    
+    {cart.length > 0 && (
+<div class="cart">
+
+<h2>Items Added</h2>
+<ul>
+{cart.map((item, index) => (
+<li key={index}>
+  {item.name} - ₹{item.price} - Quantity: {item.quantity}
+</li>
+))}
+</ul>
+<p>Total Price: ₹{calculateTotalPrice().toFixed(2)}</p>
+</div> )}
+
+
+ 
+<Footer/>
+</div>
+);
 }
